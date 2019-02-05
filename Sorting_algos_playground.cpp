@@ -36,8 +36,8 @@ int main()
 	int sort_type = 1, arr_size = 0;
 
 	//////////////////////////////////////////////////////////////////Меню с выбором сортировки//////////////////////////////////////////////////////////////////
-
-	/*do
+	
+	do
 	{
 		
 		std::cout << "Choose the number of the sorting algo:\n";
@@ -58,7 +58,7 @@ int main()
 		system("pause");
 		system("cls");
 
-	} while (true);*/
+	} while (true);
 
 	//////////////////////////////////////////////////////////////////Примеры испльзования функций сортировки////////////////////////////////////////////////////
 
@@ -70,7 +70,7 @@ int main()
 	//print_arr(arr, &arr[10]);//Вывод массива в консоль
 
 	//////////////////////////////////////////////////////////////////Запись значений времени сортировки////////////////////////////////////////////////////////
-
+/* 
 	std::ofstream measurements;
 	measurements.open("measurements.csv");
 	measurements << "Array size;Bubble sorting time;Selection sorting time;Insertion sorting time;Quick sorting time\n";
@@ -88,7 +88,7 @@ int main()
 		if (i >= 10 && i < 100) i += 5;
 		if (i < 10) ++i;
 	};
-	measurements.close();
+	measurements.close(); */
 };
 
 template<typename X>
@@ -113,26 +113,26 @@ float measure_sort_time(X &arr_size, const int &sort_type)//Измерение �
 
 	switch (sort_type)
 	{
-	case 1:
+	case 1://Сортировка пузырьком
 		START_TIMER;
 		bubble_sort(numbers, &numbers[arr_size]);
 		STOP_TIMER("Bubble sort", time);
 		break;
 
 	case 2:
-		START_TIMER;
+		START_TIMER;//Сортировка выбором
 		selection_sort(numbers, &numbers[arr_size]);
 		STOP_TIMER("Selection sort", time);
 		break;
 
 	case 3:
-		START_TIMER;
+		START_TIMER;//Сортировка вставками
 		insertion_sort(numbers, &numbers[arr_size]);
 		STOP_TIMER("Insertion sort", time);
 		break;
 
 	case 4:
-		START_TIMER;
+		START_TIMER;//Быстрая сортировка
 		quick_sort(numbers, &numbers[arr_size]);
 		STOP_TIMER("Quick sort", time);
 		break;
