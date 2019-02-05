@@ -46,17 +46,17 @@ int main()
 
 		if (std::toupper(sw) == 'Q') break;
 		sort_type = atoi(&sw);
-		system("cls");
+		system("clear");
 
 		std::cout << "Enter the size of the array\n";
 		std::cin >> arr_size;
-		system("cls");
+		system("clear");
 
 		std::cout << "Sorting array of " << arr_size << " elements\n";
 		measure_sort_time(arr_size, sort_type);
 		std::cout << "\n";
 		system("pause");
-		system("cls");
+		system("clear");
 
 	} while (true);
 
