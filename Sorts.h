@@ -6,7 +6,7 @@ template<typename X>
 void print_arr(X *begin, X *end)//Вывод массива на экран
 {
 	while(begin < end) std::cout << *begin++ << " ";
-	std::cout << "\n";
+	std::cout << std::endl;
 	return;
 };
 

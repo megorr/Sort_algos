@@ -5,16 +5,18 @@
 #include <cctype>
 #include <fstream>
 
+using namespace std;
+
 #define TIMING
 #define SIZE 50000
 
 #ifdef TIMING //Макрос для измерения времени выполнения участка программы
-#define INIT_TIMER auto start = std::chrono::steady_clock::now();
-#define START_TIMER  start = std::chrono::steady_clock::now();
-#define STOP_TIMER(name, time)  time = std::chrono::duration_cast<std::chrono::nanoseconds>\
-								(std::chrono::steady_clock::now()-start).count();\
-								std::cout << "RUNTIME of " << name << ": " << \
-								time << " ns " << "or " << time/1000000 << "ms" <<std::endl;\
+#define INIT_TIMER auto start = chrono::steady_clock::now();
+#define START_TIMER  start = chrono::steady_clock::now();
+#define STOP_TIMER(name, time)  time = chrono::duration_cast<chrono::nanoseconds>\
+								(chrono::steady_clock::now()-start).count();\
+								cout << "RUNTIME of " << name << ": " << \
+								time << " ns " << "or " << time/1000000 << "ms" <<endl;\
 		
 #else
 #define INIT_TIMER
@@ -40,21 +42,21 @@ int main()
 	do
 	{
 		
-		std::cout << "Choose the number of the sorting algo:\n";
-		std::cout << "1. Bubble sort\n" << "2. Selection sort\n" << "3. Insertion sort\n" << "4. Quick sort\n" << "Enter q to exit\n";
-		std::cin >> sw;
+		cout << "Choose the number of the sorting algo" << endl;
+		cout << "1. Bubble sort\n" << "2. Selection sort\n" << "3. Insertion sort\n" << "4. Quick sort\n" << "Enter q to exit" << endl;
+		cin >> sw;
 
-		if (std::toupper(sw) == 'Q') break;
+		if (toupper(sw) == 'Q') break;
 		sort_type = atoi(&sw);
 		system("clear");
 
-		std::cout << "Enter the size of the array\n";
-		std::cin >> arr_size;
+		cout << "Enter the size of the array" << endl;
+		cin >> arr_size;
 		system("clear");
 
-		std::cout << "Sorting array of " << arr_size << " elements\n";
+		cout << "Sorting array of " << arr_size << " elements" << endl;
 		measure_sort_time(arr_size, sort_type);
-		std::cout << "\n";
+		cout << endl;
 		system("pause");
 		system("clear");
 
@@ -71,13 +73,13 @@ int main()
 
 	//////////////////////////////////////////////////////////////////Запись значений времени сортировки////////////////////////////////////////////////////////
 /* 
-	std::ofstream measurements;
+	ofstream measurements;
 	measurements.open("measurements.csv");
-	measurements << "Array size;Bubble sorting time;Selection sorting time;Insertion sorting time;Quick sorting time\n";
+	measurements << "Array size;Bubble sorting time;Selection sorting time;Insertion sorting time;Quick sorting time" << endl;
 
 	for (int i = 2; i <= 100000;)
 	{
-		std::cout << i << "\n";
+		cout << i << endl;
 		measurements << i << ";" << measure_sort_time(i, static_cast<int>(Bubble))/1000000 <<
 							 ";" << measure_sort_time(i, static_cast<int>(Selection))/1000000 <<
 							 ";" << measure_sort_time(i, static_cast<int>(Insertion))/1000000 << 
@@ -138,7 +140,7 @@ float measure_sort_time(X &arr_size, const int &sort_type)//Измерение �
 		break;
 
 	default:
-		std::cout << "You've done smthng wrong, try again!\n";
+		cout << "You've done smthng wrong, try again!" << endl;
 		return -1;
 	};
 
