@@ -89,9 +89,9 @@ int main()
 		if (i >= 100 && i < 1000) i += 10;
 		if (i >= 10 && i < 100) i += 5;
 		if (i < 10) ++i;
-	};
+	}
 	measurements.close(); */
-};
+}
 
 template<typename X>
 void fill_rand(X *arr, X &size)//Заполнение массива рандомными числами
@@ -100,9 +100,9 @@ void fill_rand(X *arr, X &size)//Заполнение массива рандо�
 	for (; i < size; ++i)
 	{
 		*arr++ = rand();
-	};
+	}
 	return;
-};
+}
 
 template<typename X>
 float measure_sort_time(X &arr_size, const int &sort_type)//Измерение времени работы определенного алгоритма сортировки
@@ -142,7 +142,7 @@ float measure_sort_time(X &arr_size, const int &sort_type)//Измерение �
 	default:
 		cout << "You've done smthng wrong, try again!" << endl;
 		return -1;
-	};
+	}
 
 	return time;
-};
+}

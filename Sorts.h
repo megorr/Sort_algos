@@ -8,7 +8,7 @@ void print_arr(X *begin, X *end)//Вывод массива на экран
 	while(begin < end) std::cout << *begin++ << " ";
 	std::cout << std::endl;
 	return;
-};
+}
 
 template<typename X>
 void swap(X *a, X *b)//Обмен двух значений
@@ -17,7 +17,7 @@ void swap(X *a, X *b)//Обмен двух значений
 	*a = *b;
 	*b = tmp;
 	return;
-};
+}
 
 template<typename X>
 X *partition(X *begin, X *end)//Разбиение Ломуто для быстрой сортировки
@@ -29,11 +29,11 @@ X *partition(X *begin, X *end)//Разбиение Ломуто для быст�
 		if (*j <= *(end - 1))
 		{	
 			swap(i++, j);
-		};
-	}; 
+		}
+	}
 	swap(i, end - 1);
 	return i;
-};
+}
 
 ////////////////////////////////////////////////////////////////Алгоритмы сортировки////////////////////////////////////////////////////////////////
 
@@ -49,11 +49,11 @@ void insertion_sort(X *begin, X *end)//Сортировка вставками
 		{
 			*insert_pos = *(insert_pos - 1);
 			--insert_pos;
-		};
+		}
 		*insert_pos = tmp;
-	};
+	}
 	return;
-};
+}
 
 template<typename X>
 void selection_sort(X *begin, X *end)//Сортировка выбором
@@ -67,11 +67,11 @@ void selection_sort(X *begin, X *end)//Сортировка выбором
 		for (; curr_elem < end; ++curr_elem)
 		{
 			if (*min > *curr_elem) min = curr_elem;
-		};
+		}https://channel9.msdn.com/Series/C9-Lectures-Stephan-T-Lavavej-Standard-Template-Library-STL-
 		swap(min, begin);
-	};
+	}
 	return;
-};
+}
 
 template<typename X>
 void bubble_sort(X *begin, X *end)//Сортировка пузырьком
@@ -82,11 +82,11 @@ void bubble_sort(X *begin, X *end)//Сортировка пузырьком
 		for (X *i = begin; i< sorted_end; ++i)
 		{
 			if (*i > *(i + 1)) swap(i, i + 1);
-		};
+		}
 		--sorted_end;
-	};
+	}
 	return;
-};
+}
 
 template<typename X>
 void quick_sort(X *begin, X *end)//Быстрая сортировка, разбиение Ломуто
@@ -96,8 +96,14 @@ void quick_sort(X *begin, X *end)//Быстрая сортировка, разб
 		X *part_index = partition(begin, end);
 		quick_sort(begin, part_index);
 		quick_sort(part_index + 1, end);
-	};
+	}
 	return;
-};
+}
+
+template<typename X>
+void merge_sort(X *begin, X*end)
+{
+
+}
 
 
