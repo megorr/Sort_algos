@@ -67,7 +67,7 @@ void selection_sort(X *begin, X *end)//Сортировка выбором
 		for (; curr_elem < end; ++curr_elem)
 		{
 			if (*min > *curr_elem) min = curr_elem;
-		}https://channel9.msdn.com/Series/C9-Lectures-Stephan-T-Lavavej-Standard-Template-Library-STL-
+		}
 		swap(min, begin);
 	}
 	return;
