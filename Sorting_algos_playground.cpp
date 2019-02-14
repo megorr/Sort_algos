@@ -39,37 +39,38 @@ int main()
 
 	//////////////////////////////////////////////////////////////////Меню с выбором сортировки//////////////////////////////////////////////////////////////////
 	
-	do
-	{
+	// do
+	// {
 		
-		cout << "Choose the number of the sorting algo" << endl;
-		cout << "1. Bubble sort\n" << "2. Selection sort\n" << "3. Insertion sort\n" << "4. Quick sort\n" << "Enter q to exit" << endl;
-		cin >> sw;
+	// 	cout << "Choose the number of the sorting algo" << endl;
+	// 	cout << "1. Bubble sort\n" << "2. Selection sort\n" << "3. Insertion sort\n" << "4. Quick sort\n" << "Enter q to exit" << endl;
+	// 	cin >> sw;
 
-		if (toupper(sw) == 'Q') break;
-		sort_type = atoi(&sw);
-		system("clear");
+	// 	if (toupper(sw) == 'Q') break;
+	// 	sort_type = atoi(&sw);
+	// 	system("clear");
 
-		cout << "Enter the size of the array" << endl;
-		cin >> arr_size;
-		system("clear");
+	// 	cout << "Enter the size of the array" << endl;
+	// 	cin >> arr_size;
+	// 	system("clear");
 
-		cout << "Sorting array of " << arr_size << " elements" << endl;
-		measure_sort_time(arr_size, sort_type);
-		cout << endl;
-		system("pause");
-		system("clear");
+	// 	cout << "Sorting array of " << arr_size << " elements" << endl;
+	// 	measure_sort_time(arr_size, sort_type);
+	// 	cout << endl;
+	// 	system("pause");
+	// 	system("clear");
 
-	} while (true);
+	// } while (true);
 
 	//////////////////////////////////////////////////////////////////Примеры испльзования функций сортировки////////////////////////////////////////////////////
 
-	//int arr[10] = { 5, 6, 3, 4, 1, 2, 0, 9, 7, 8 };//Массив из 10 чисел
-	//insertion_sort(arr, &arr[10]);//Сортировка вставкой
-	//selection_sort(arr, &arr[10]);//Сортировка выборкой
-	//bubble_sort(arr, &arr[10]);//Сортировка пузырьком
-	//quick_sort(arr, &arr[10]);//Быстрая сортировка, разбиение Ломуто
-	//print_arr(arr, &arr[10]);//Вывод массива в консоль
+	int arr[10] = { 5, 6, 3, 4, 1, 2, 0, 9, 7, 8 };//Массив из 10 чисел
+	// insertion_sort(arr, &arr[10]);//Сортировка вставкой
+	// selection_sort(arr, &arr[10]);//Сортировка выборкой
+	// bubble_sort(arr, &arr[10]);//Сортировка пузырьком
+	// quick_sort(arr, &arr[10]);//Быстрая сортировка, разбиение Ломуто
+	merge_sort(arr, &arr[10]);
+	print_arr(arr, &arr[10]);//Вывод массива в консоль
 
 	//////////////////////////////////////////////////////////////////Запись значений времени сортировки////////////////////////////////////////////////////////
 /* 

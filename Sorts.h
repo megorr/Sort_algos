@@ -35,6 +35,31 @@ X *partition(X *begin, X *end)//Разбиение Ломуто для быст�
 	return i;
 }
 
+
+template<typename X>
+void merge(X *l, X *m, X *r)//Слияние двух сортированных массивов
+{
+	size_t size = r - l;
+	X temp_arr[size];
+	X *temp_ptr = temp_arr;
+	X *l_ptr = l, *m_ptr = m;
+
+	while(l_ptr < m && m_ptr < r)
+	{
+		if(*l_ptr < *m_ptr) *temp_ptr++ = *l_ptr++;
+		else *temp_ptr++ = *m_ptr++;
+	}
+
+	while(l_ptr < m) *temp_ptr++ = *l_ptr++;
+	while(m_ptr < r) *temp_ptr++ = *m_ptr++;
+
+	temp_ptr = temp_arr;
+	while(l < r) *l++ = *temp_ptr++;
+
+	return;
+
+}
+
 ////////////////////////////////////////////////////////////////Алгоритмы сортировки////////////////////////////////////////////////////////////////
 
 template<typename X>
@@ -101,9 +126,16 @@ void quick_sort(X *begin, X *end)//Быстрая сортировка, разб
 }
 
 template<typename X>
-void merge_sort(X *begin, X*end)
+void merge_sort(X *begin, X*end)//Сортировка слиянием
 {
-
+	if(begin + 1< end)
+	{
+		size_t middle = (end - begin) / 2;
+		merge_sort(begin, begin + middle);
+		merge_sort(begin + middle, end);
+		merge(begin, begin + middle, end);
+	}
+	return;	
 }
 
 
