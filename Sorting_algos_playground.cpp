@@ -32,7 +32,7 @@ float measure_sort_time(X &arr_size, const int &sort_type);
 
 int main()
 {
-	enum {Bubble = 1, Selection, Insertion, Quick};
+	enum {Bubble = 1, Selection, Insertion, Quick, Merge};
 	float time = 0;
 	char sw;
 	int sort_type = 1, arr_size = 0;
@@ -43,7 +43,7 @@ int main()
 	// {
 		
 	// 	cout << "Choose the number of the sorting algo" << endl;
-	// 	cout << "1. Bubble sort\n" << "2. Selection sort\n" << "3. Insertion sort\n" << "4. Quick sort\n" << "Enter q to exit" << endl;
+	// 	cout << "1. Bubble sort\n" << "2. Selection sort\n" << "3. Insertion sort\n" << "4. Quick sort\n" << "5. Merge sort\n" <<  "Enter q to exit" << endl;
 	// 	cin >> sw;
 
 	// 	if (toupper(sw) == 'Q') break;
@@ -57,26 +57,26 @@ int main()
 	// 	cout << "Sorting array of " << arr_size << " elements" << endl;
 	// 	measure_sort_time(arr_size, sort_type);
 	// 	cout << endl;
-	// 	system("pause");
-	// 	system("clear");
+	// 	system("pause"); 
+	// 	//system("clear");
 
 	// } while (true);
 
 	//////////////////////////////////////////////////////////////////Примеры испльзования функций сортировки////////////////////////////////////////////////////
 
-	int arr[10] = { 5, 6, 3, 4, 1, 2, 0, 9, 7, 8 };//Массив из 10 чисел
+	//int arr[10] = { 5, 6, 3, 4, 1, 2, 0, 9, 7, 8 };//Массив из 10 чисел
 	// insertion_sort(arr, &arr[10]);//Сортировка вставкой
 	// selection_sort(arr, &arr[10]);//Сортировка выборкой
 	// bubble_sort(arr, &arr[10]);//Сортировка пузырьком
 	// quick_sort(arr, &arr[10]);//Быстрая сортировка, разбиение Ломуто
-	merge_sort(arr, &arr[10]);
-	print_arr(arr, &arr[10]);//Вывод массива в консоль
+	//merge_sort(arr, &arr[10]);
+	//print_arr(arr, &arr[10]);//Вывод массива в консоль
 
 	//////////////////////////////////////////////////////////////////Запись значений времени сортировки////////////////////////////////////////////////////////
-/* 
+ 
 	ofstream measurements;
 	measurements.open("measurements.csv");
-	measurements << "Array size;Bubble sorting time;Selection sorting time;Insertion sorting time;Quick sorting time" << endl;
+	measurements << "Array size;Bubble sorting time;Selection sorting time;Insertion sorting time;Quick sorting time;Selection sorting time" << endl;
 
 	for (int i = 2; i <= 100000;)
 	{
@@ -84,14 +84,15 @@ int main()
 		measurements << i << ";" << measure_sort_time(i, static_cast<int>(Bubble))/1000000 <<
 							 ";" << measure_sort_time(i, static_cast<int>(Selection))/1000000 <<
 							 ";" << measure_sort_time(i, static_cast<int>(Insertion))/1000000 << 
-							 ";" << measure_sort_time(i, static_cast<int>(Quick))/1000000 << "\n";
+							 ";" << measure_sort_time(i, static_cast<int>(Quick))/1000000 <<
+							 ";" << measure_sort_time(i, static_cast<int>(Merge))/1000000 << "\n";
 		if (i >= 10000) i += 5000;
 		if (i >= 1000 && i < 10000) i += 250;
 		if (i >= 100 && i < 1000) i += 10;
 		if (i >= 10 && i < 100) i += 5;
 		if (i < 10) ++i;
 	}
-	measurements.close(); */
+	measurements.close();
 }
 
 template<typename X>
@@ -138,6 +139,12 @@ float measure_sort_time(X &arr_size, const int &sort_type)//Измерение �
 		START_TIMER;//Быстрая сортировка
 		quick_sort(numbers, &numbers[arr_size]);
 		STOP_TIMER("Quick sort", time);
+		break;
+	
+	case 5: 
+		START_TIMER;//Сортировка слиянием
+		merge_sort(numbers, &numbers[arr_size]);
+		STOP_TIMER("Merge sort", time);
 		break;
 
 	default:
