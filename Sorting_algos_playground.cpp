@@ -76,7 +76,7 @@ int main()
  
 	ofstream measurements;
 	measurements.open("measurements.csv");
-	measurements << "Array size;Bubble sorting time;Selection sorting time;Insertion sorting time;Quick sorting time;Selection sorting time" << endl;
+	measurements << "Array size;Bubble sorting time;Selection sorting time;Insertion sorting time;Quick sorting time;Merge sorting time" << endl;
 
 	for (int i = 2; i <= 100000;)
 	{
